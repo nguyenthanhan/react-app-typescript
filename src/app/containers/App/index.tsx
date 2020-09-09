@@ -1,20 +1,20 @@
 import React from 'react';
 import style from './style.css';
-import { RouteComponentProps } from 'react-router';
+import { RouteComponentProps } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useTodoActions } from 'app/actions';
-import { RootState } from 'app/reducers';
+import { useTodoActions } from 'app/store/actions';
+import { RootState } from 'app/store/reducers';
 import { TodoModel } from 'app/models';
 import { Header, TodoList, Footer } from 'app/components';
 
 const FILTER_VALUES = (Object.keys(TodoModel.Filter) as (keyof typeof TodoModel.Filter)[]).map(
-  (key) => TodoModel.Filter[key]
+  key => TodoModel.Filter[key]
 );
 
 const FILTER_FUNCTIONS: Record<TodoModel.Filter, (todo: TodoModel) => boolean> = {
   [TodoModel.Filter.SHOW_ALL]: () => true,
-  [TodoModel.Filter.SHOW_ACTIVE]: (todo) => !todo.completed,
-  [TodoModel.Filter.SHOW_COMPLETED]: (todo) => todo.completed
+  [TodoModel.Filter.SHOW_ACTIVE]: todo => !todo.completed,
+  [TodoModel.Filter.SHOW_COMPLETED]: todo => todo.completed,
 };
 
 export namespace App {
@@ -28,7 +28,7 @@ export const App = ({ history, location }: App.Props) => {
     const hash = location?.hash?.replace('#', '');
     return {
       todos: state.todos,
-      filter: FILTER_VALUES.find((value) => value === hash) ?? TodoModel.Filter.SHOW_ALL
+      filter: FILTER_VALUES.find(value => value === hash) ?? TodoModel.Filter.SHOW_ALL,
     };
   });
 
@@ -44,8 +44,8 @@ export const App = ({ history, location }: App.Props) => {
   );
 
   const filteredTodos = React.useMemo(() => (filter ? todos.filter(FILTER_FUNCTIONS[filter]) : todos), [todos, filter]);
-  const activeCount = React.useMemo(() => todos.filter((todo) => !todo.completed).length, [todos]);
-  const completedCount = React.useMemo(() => todos.filter((todo) => todo.completed).length, [todos]);
+  const activeCount = React.useMemo(() => todos.filter(todo => !todo.completed).length, [todos]);
+  const completedCount = React.useMemo(() => todos.filter(todo => todo.completed).length, [todos]);
 
   return (
     <div className={style.normal}>

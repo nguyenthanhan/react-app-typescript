@@ -1,7 +1,9 @@
 import { Store, createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { RootState, rootReducer } from 'app/reducers';
-import { logger, thunk } from 'app/middleware';
+import { thunk } from 'app/store/middleware';
+import logger from 'redux-logger';
+// import createSagaMiddleware from 'redux-saga';
+import { RootState, rootReducer } from 'app/store/reducers';
 
 export function configureStore(initialState?: RootState): Store<RootState> {
   let middleware = applyMiddleware(thunk, logger);

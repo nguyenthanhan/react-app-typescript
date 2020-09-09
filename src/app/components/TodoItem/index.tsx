@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 import style from './style.css';
 import { TodoModel } from 'app/models';
-import { TodoActions } from 'app/actions';
+import { TodoActions } from 'app/store/actions';
 import { TodoTextInput } from '../TodoTextInput';
 
 export namespace TodoItem {
@@ -36,13 +36,13 @@ export const TodoItem = ({ todo, editTodo, deleteTodo, completeTodo }: TodoItem.
   const classes = classNames({
     [style.completed]: todo.completed,
     [style.editing]: editing,
-    [style.normal]: !editing
+    [style.normal]: !editing,
   });
 
   return (
     <li className={classes}>
       {editing ? (
-        <TodoTextInput onSave={(text) => todo.id && handleSave(todo.id, text)} />
+        <TodoTextInput onSave={text => todo.id && handleSave(todo.id, text)} />
       ) : (
         <div className={style.view}>
           <input
