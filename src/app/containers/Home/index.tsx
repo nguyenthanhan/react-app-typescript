@@ -1,7 +1,6 @@
 import React from 'react';
 import Main from './shared/Main';
 import styled from 'styled-components';
-import 'antd/dist/antd.css';
 
 interface HomePropsInterface {}
 
