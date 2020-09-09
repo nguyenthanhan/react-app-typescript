@@ -1,0 +1,20 @@
+{
+  "general": {
+    "ok": "OK",
+    "cancel": "Cancel",
+    "dismiss": "Dismiss",
+    "viewMoreDetails": "View More Details",
+    "close": "Close",
+    "normal": "Normal",
+    "tight": "Tight",
+    "none": "None"
+  },
+  "dashboard": {
+    "livePrices": "Live Prices",
+    "availability": "Availability",
+    "quality": "Quality",
+    "lastUpdate": "Last update:",
+    "viewMap": "View Map",
+    "allPorts": "All Ports"
+  }
+}

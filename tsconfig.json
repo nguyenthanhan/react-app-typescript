@@ -13,6 +13,7 @@
     "strict": true,
     "outDir": "build",
     "lib": ["es6", "es7", "dom"],
+    "resolveJsonModule": true,
     "baseUrl": "src",
     "paths": {
       "app/*": ["./app/*"]
