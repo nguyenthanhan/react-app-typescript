@@ -5,9 +5,8 @@ import { createBrowserHistory } from 'history';
 import { configureStore } from 'app/store';
 import { Router } from 'react-router-dom';
 import { App } from './app';
-import 'normalize.css';
-import 'antd/dist/antd.css';
-import './main.css';
+// import 'normalize.css';
+// import 'antd/dist/antd.css';
 
 // prepare store
 const history = createBrowserHistory();

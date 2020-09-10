@@ -1,14 +1,26 @@
 import React, { FC, useState, useCallback, memo, useEffect } from 'react';
-import './index.css';
 import styled from 'styled-components';
 
 const H2Styles = styled.h2`
   color: white;
 `;
 
+const Button = styled.button`
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+`;
+
+const AppFooter = styled.footer`
+  background-color: #282c34;
+  /* min-height: 80vh; */
+  display: flex;
+  font-size: calc(10px + 2vmin);
+`;
+
 export interface ClockProps {
   showButton?: boolean;
-  onClickHandler: () => void;
+  onClickHandler?: () => void;
 }
 
 const Clock: FC<ClockProps> = ({ onClickHandler, showButton = false }) => {
@@ -23,18 +35,14 @@ const Clock: FC<ClockProps> = ({ onClickHandler, showButton = false }) => {
   }, []);
 
   const handleClick = useCallback(() => {
-    onClickHandler();
+    onClickHandler && onClickHandler();
   }, [onClickHandler]);
 
   return (
-    <footer className="App-footer">
-      {showButton && (
-        <button onClick={handleClick} className="Button">
-          {}
-        </button>
-      )}
+    <AppFooter>
+      {showButton && <Button onClick={handleClick}>{}</Button>}
       <H2Styles>{date}</H2Styles>
-    </footer>
+    </AppFooter>
   );
 };
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import Main from './shared/Main';
 import styled from 'styled-components';
+import { Clock } from 'app/components';
 
 interface HomePropsInterface {}
 
@@ -33,6 +34,7 @@ class Home extends React.PureComponent<HomePropsInterface, HomeStateInterface> {
     return (
       <Container>
         <Main title={'Main'}></Main>
+        <Clock></Clock>
       </Container>
     );
   }
