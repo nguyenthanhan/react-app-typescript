@@ -1,4 +1,4 @@
-/*// Section 1
+// Section 1
 const express = require('express');
 const axios = require('axios');
 // const path = require("path");
