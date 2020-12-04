@@ -12,14 +12,18 @@
     "boilerplate",
     "todomvc"
   ],
+  "engines": {
+    "npm": "7.0.14",
+    "node": "15.3.0"
+  },
   "main": "index.js",
   "scripts": {
+    "start:dev": "webpack-dev-server --mode development --hot --progress --color --port 3000 --open",
+    "build": "webpack -p --progress --colors",
+    "start": "node ./bin/www",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --mode development --hot --progress --color --port 3000 --open",
-    "build": "webpack -p --progress --colors",
-    "server": "nodemon server/index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "license": "MIT",
   "devDependencies": {
@@ -72,13 +76,18 @@
     "antd": "^4.6.3",
     "axios": "^0.21.0",
     "classnames": "^2.2.6",
+    "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
+    "debug": "^4.1.1",
     "express": "^4.17.1",
     "gsap": "^3.5.1",
+    "http-errors": "^1.7.2",
     "i18n-js": "^3.8.0",
     "immutability-helper": "^3.1.1",
+    "jade": "^1.11.0",
     "lodash": "^4.17.20",
     "moment": "^2.27.0",
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.6",
     "normalize.css": "^8.0.1",
     "react": "^16.13.1",
