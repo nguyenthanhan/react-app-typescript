@@ -3,5 +3,6 @@
         "Todos",
         "gsap",
         "hookform"
-    ]
+    ],
+    "editor.formatOnSave": true
 }
