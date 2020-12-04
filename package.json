@@ -12,10 +12,6 @@
     "boilerplate",
     "todomvc"
   ],
-  "engines": {
-    "npm": "7.0.14",
-    "node": "15.3.0"
-  },
   "main": "index.js",
   "scripts": {
     "start:dev": "webpack-dev-server --mode development --hot --progress --color --port 3000 --open",
